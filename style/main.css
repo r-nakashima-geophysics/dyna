@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: gray;
+    background-color: black;
     margin: 0 auto;
 }
 
@@ -109,16 +109,17 @@ h2, h3 {
 a.menu-btn {
     align-items: center;
     background-color: transparent;
+    border-radius: 10%;
     color: transparent;
+    display:flex;
     font-size: x-small;
+    justify-content:center;
     height: calc(120px * 0.3);
-    line-height: calc(120px * 0.3 - 2px);
     margin: calc(120px * 0.05) 1% calc(120px * 0.05) 1%;
     pointer-events: none;
     text-decoration: none;
     text-align: center;
     width: 15%;
-    
 }
 
 .page-header:has(#hamburger-menu-check:checked) ~ .menu {
@@ -128,10 +129,15 @@ a.menu-btn {
 }
 
 .page-header:has(#hamburger-menu-check:checked) ~ .menu a.menu-btn {
-    border: solid 1px white;
     color: white;
     pointer-events:all;
-    transition: all 2.5s;
+    transition: all 0.5s;
+    box-shadow: -1px -1px 2px dimgray, inset -1px -1px 2px transparent;
+}
+
+.page-header:has(#hamburger-menu-check:checked) ~ .menu a.menu-btn:hover {
+    transition: all 0.5s;
+    box-shadow: -1px -1px 2px transparent, inset -1px -1px 2px dimgray;
 }
 
 /* ----- for PC ----- */
