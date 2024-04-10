@@ -4,10 +4,90 @@
     box-sizing: border-box;
 }
 
+html {
+    background-color: lightgray;
+}
+
 body {
     background-color: black;
+    margin: 0 auto;
+    width: 1000px;
+}
+
+header {
+    position: relative;
+    height: 20px;
+    background-color: darkgray;
+    margin-bottom: 50px;
 }
 
 h1, h2 {
     color: white;
+}
+
+.menu-btn {
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 50px;
+    z-index: 10;
+}
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+    border-radius: 3px;
+    content: '';
+    height: 4px;
+    width: 30px;
+    background-color: black;
+    position: absolute;
+}
+.menu-btn span:before {
+    bottom: 11px;
+}
+.menu-btn span:after {
+    top: 11px;
+}
+#menu-btn-check {
+    display: none;
+}
+#menu-btn-check:checked ~ .menu-btn span {
+    background-color: transparent;
+    transition: all 0.5s;
+}
+#menu-btn-check:checked ~ .menu-btn span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+    transition: all 0.5s;
+}
+#menu-btn-check:checked ~ .menu-btn span::after {
+    top: 0;
+    transform: rotate(-45deg);
+    transition: all 0.5s;
+}
+
+.menu-content {
+    max-height: 0;
+    position: absolute;
+    border-radius: 5px;
+    top: 5px;
+    left: calc(5px + 50px / 2);
+    background-color: white;
+    width: 200px;
+}
+.menu-content ul {
+    display: none;
+}
+#menu-btn-check:checked ~ .menu-content {
+    max-height: 200px;
+    transition: max-height 0.5s;
+}
+#menu-btn-check:checked ~ .menu-content ul {
+    display: block;
 }
