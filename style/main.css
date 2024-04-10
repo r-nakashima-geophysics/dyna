@@ -10,42 +10,55 @@ body {
 }
 
 header {
-    background-color: black;
-    clip-path: polygon(0% 0%, 0% 100%, 50% 70%, 100% 100%, 100% 0%);
-    height: 120px;
     position: sticky;
-    top: 0;
-    z-index: 20;
 }
-
 
 h2, h3 {
     color: white;
 }
 
-/* ----- hamburger menu ----- */
+/* ----- header ----- */
 
-.hamburger-menu {
-    position: relative;
-}
-
-.menu-btn {
-    align-items: center;
+.page-header {
     background-color: black;
-    border: solid 1px white;
+    clip-path: polygon(0% 0%, 0% 100%, 20% 60%, 80% 60%, 100% 100%, 100% 0%);
     display: flex;
-    height: 70px;
-    justify-content: center;
-    left: 10px;
-    position: absolute;
-    top: 5px;
-    width: 50px;
+    height: 120px;
+    top: 0;
     z-index: 20;
 }
 
-.menu-btn span,
-.menu-btn span:before,
-.menu-btn span:after {
+.hamburger-menu, .logo, .english-btn {
+    height: 70%;
+    position: relative;
+}
+.hamburger-menu {
+    width: 25%;
+}
+.logo {
+    margin-top: -13px;
+    text-align: center;
+    width: 50%;
+}
+.english-btn {
+    width: 25%;
+}
+
+.hamburger-menu-btn {
+    align-items: center;
+    background-color: black;
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    left: 10px;
+    position: absolute;
+    top: 10%;
+    width: 60px;
+}
+
+.hamburger-menu-btn span,
+.hamburger-menu-btn span:before,
+.hamburger-menu-btn span:after {
     background-color: white;
     border-radius: 3px;
     content: '';
@@ -55,59 +68,70 @@ h2, h3 {
     transition: all 0.5s;
     width: 30px;
 }
-
-.menu-btn span:before {
-    bottom: 11px;
+.hamburger-menu-btn span:before {
+    bottom: 12px;
+}
+.hamburger-menu-btn span:after {
+    top: 12px;
 }
 
-.menu-btn span:after {
-    top: 11px;
-}
-
-#menu-btn-check {
+#hamburger-menu-check {
     display: none;
 }
 
-#menu-btn-check:checked ~ .menu-btn span {
+#hamburger-menu-check:checked ~ .hamburger-menu-btn span {
     background-color: transparent;
     transition: all 0.5s;
 }
-
-#menu-btn-check:checked ~ .menu-btn span::before {
+#hamburger-menu-check:checked ~ .hamburger-menu-btn span::before {
     bottom: 0;
     transform: rotate(45deg);
     transition: all 0.5s;
 }
-
-#menu-btn-check:checked ~ .menu-btn span::after {
+#hamburger-menu-check:checked ~ .hamburger-menu-btn span::after {
     top: 0;
     transform: rotate(-45deg);
     transition: all 0.5s;
 }
 
-.menu-content {
+.menu {
     background-color: black;
-    border-radius: 5px;
-    left: calc(5px + 50px / 2);
+    display: flex;
+    justify-content: center;
     max-height: 0;
     position: absolute;
-    top: 5px;
+    top: 60%;
     transition: max-height 0.5s;
-    width: 200px;
+    width: 100%;
     z-index: 10;
 }
 
-.menu-content ul {
-    display: block;
+a.menu-btn {
+    align-items: center;
+    background-color: transparent;
+    color: transparent;
+    font-size: x-small;
+    height: calc(120px * 0.3);
+    line-height: calc(120px * 0.3 - 2px);
+    margin: calc(120px * 0.05) 1% calc(120px * 0.05) 1%;
+    pointer-events: none;
+    text-decoration: none;
+    text-align: center;
+    width: 15%;
+    
 }
 
-#menu-btn-check:checked ~ .menu-content {
-    max-height: 200px;
-    transition: max-height 0.5s;
+.page-header:has(#hamburger-menu-check:checked) ~ .menu {
+    max-height: calc(120px * 0.4);
+    transition: all 0.5s;
+    background-color: black;
 }
 
-#menu-btn-check:checked ~ .menu-content ul {
-    display: block;
+.page-header:has(#hamburger-menu-check:checked) ~ .menu a.menu-btn {
+    border: solid 1px white;
+    color: white;
+    pointer-events:all;
+    transition: all 2.5s;
 }
 
 /* ----- for PC ----- */
