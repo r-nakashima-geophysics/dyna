@@ -4,68 +4,81 @@
     box-sizing: border-box;
 }
 
-html {
-    background-color: lightgray;
-}
-
 body {
-    background-color: black;
+    background-color: gray;
     margin: 0 auto;
-    width: 1000px;
 }
 
 header {
-    position: relative;
-    height: 20px;
-    background-color: darkgray;
-    margin-bottom: 50px;
+    background-color: black;
+    clip-path: polygon(0% 0%, 0% 100%, 50% 70%, 100% 100%, 100% 0%);
+    height: 120px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
 }
 
-h1, h2 {
+
+h2, h3 {
     color: white;
+}
+
+/* ----- hamburger menu ----- */
+
+.hamburger-menu {
+    position: relative;
 }
 
 .menu-btn {
     align-items: center;
-    background-color: white;
-    border-radius: 5px;
+    background-color: black;
+    border: solid 1px white;
     display: flex;
-    height: 50px;
+    height: 70px;
     justify-content: center;
+    left: 10px;
     position: absolute;
-    left: 5px;
     top: 5px;
     width: 50px;
-    z-index: 10;
+    z-index: 20;
 }
+
 .menu-btn span,
 .menu-btn span:before,
 .menu-btn span:after {
+    background-color: white;
     border-radius: 3px;
     content: '';
     height: 4px;
-    width: 30px;
-    background-color: black;
     position: absolute;
+    transform: rotate(0deg);
+    transition: all 0.5s;
+    width: 30px;
 }
+
 .menu-btn span:before {
     bottom: 11px;
 }
+
 .menu-btn span:after {
     top: 11px;
 }
+
 #menu-btn-check {
     display: none;
 }
+
 #menu-btn-check:checked ~ .menu-btn span {
     background-color: transparent;
     transition: all 0.5s;
 }
+
 #menu-btn-check:checked ~ .menu-btn span::before {
     bottom: 0;
     transform: rotate(45deg);
     transition: all 0.5s;
 }
+
 #menu-btn-check:checked ~ .menu-btn span::after {
     top: 0;
     transform: rotate(-45deg);
@@ -73,21 +86,39 @@ h1, h2 {
 }
 
 .menu-content {
+    background-color: black;
+    border-radius: 5px;
+    left: calc(5px + 50px / 2);
     max-height: 0;
     position: absolute;
-    border-radius: 5px;
     top: 5px;
-    left: calc(5px + 50px / 2);
-    background-color: white;
+    transition: max-height 0.5s;
     width: 200px;
+    z-index: 10;
 }
+
 .menu-content ul {
-    display: none;
+    display: block;
 }
+
 #menu-btn-check:checked ~ .menu-content {
     max-height: 200px;
     transition: max-height 0.5s;
 }
+
 #menu-btn-check:checked ~ .menu-content ul {
     display: block;
+}
+
+/* ----- for PC ----- */
+
+@media (min-width: 1020px) {
+    html {
+        background-color: lightgray;
+    }
+    
+    body {
+        margin: 0 auto;
+        width: 1000px;
+    }
 }
