@@ -18,8 +18,40 @@ header {
     width: 100%;
 }
 
-h2, h3 {
+.contents {
+    text-align: center;
+}
+
+h2 {
     color: white;
+}
+
+.box {
+    border-radius: 20px;
+    margin: auto;
+    width: 300px;
+}
+.black-box {
+    background-color: black;
+}
+.gray-box {
+    background-color: #222222;
+}
+.box-l {
+    height: 250px;
+}
+.box-m {
+    height: 150px;
+}
+.box-s {
+    height: 90px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    height: 100px;
+    text-align: center;
 }
 
 /* ----- header ----- */
